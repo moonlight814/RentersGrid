@@ -5,6 +5,8 @@ import searchIcon from '../Assets/menu-1.svg';
 import addLandlordIcon from '../Assets/menu-2.svg';
 import signOutIcon from '../Assets/menu-3.svg';
 import accountIcon from '../Assets/Account button.svg';
+import OfficialLogo from '../Assets/official logo.svg';
+
 //import ratingsIcon from '../Assets/ratings-icon.svg';
 //import bookmarksIcon from '../Assets/bookmarks-icon.svg';
 import './SideMenu.css'; // Include CSS styles for the side menu
@@ -29,7 +31,7 @@ function SideMenu() {
         <div className="close-button" onClick={toggleMenu}>
           &times;
         </div>
-        <img src={require('../Assets/official logo.svg').default} alt="Logo" className="menu-logo" />
+        <img src={OfficialLogo} alt="OfficialLogo" className="menu-logo" />
         <ul>
           <li>
             {/* Add navigation using Link for Homepage */}
