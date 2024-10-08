@@ -8,18 +8,18 @@
     align-items: center;
   }
   
-  .header {
+  .headerhp {
     width: 100%; /* Full width for the header */
     display: flex;
     justify-content: center; /* Center the content horizontally */
     margin-top: 20px; /* Adjust top spacing if needed */
   }
   
-  .logo-container {
+  .logohp-container img{
     display: flex;
     justify-content: center; /* Center the logo */
     align-items: center;
-    width: 100%; /* Full width */
+    width: 450px; /* Full width */
   }
   
   .center-logo {
@@ -52,7 +52,7 @@
     display: flex;
     top: 200px;
     position: absolute;
-    margin-left: -35%; /* Adjust this value to move it left */
+    margin-left: 10px; /* Adjust this value to move it left */
     width: fit-content;      /* Adjusts the container width to fit its contents */
       }
   

@@ -23,8 +23,8 @@ import './HomePage.css';  // Create a CSS file for styling if needed
       <div className="main-container">
               <SideMenu />
 
-        <header className="header">
-          <div className="logo-container">
+        <header className="headerhp">
+          <div className="logohp-container">
             <img
               src={OfficialLogo}
               alt="Official Logo"

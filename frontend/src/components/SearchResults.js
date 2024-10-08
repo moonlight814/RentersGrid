@@ -9,12 +9,10 @@ function SearchPage() {
   const [searchQuery, setSearchQuery] = useState('');
   const [sortBy, setSortBy] = useState('');
 
-  // Handles search query change
   const handleSearchChange = (e) => {
     setSearchQuery(e.target.value);
   };
 
-  // Handles sort change
   const handleSortChange = (e) => {
     setSortBy(e.target.value);
   };
@@ -46,10 +44,10 @@ function SearchPage() {
       </header>
 
       {/* Search Bar and Sort By Container */}
-      <div className="search-and-sort-container">
+      <div className="searchby-and-sort-wrapper">
         {/* Search Bar Container */}
-        <div className="search-bar-container">
-          <select className="search-dropdown">
+        <div className="searchresults-bar-container">
+          <select className="searchby-dropdown">
             <option value="landlord">Landlord Name</option>
             <option value="Property">Property Name</option>
             <option value="address">Address</option>
@@ -61,9 +59,9 @@ function SearchPage() {
             value={searchQuery}
             onChange={handleSearchChange}
             placeholder="Search by Location"
-            className="search-input"
+            className="searchby-input"
           />
-          <button className="search-button">Search</button>
+          <button className="searchby-button">Search</button>
         </div>
 
         {/* Sort By Dropdown Below the Search Bar */}
