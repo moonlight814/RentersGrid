@@ -1,4 +1,12 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import home from '../Assets/home.svg'; // Example icons
+import searchIcon from '../Assets/menu-1.svg';
+import addLandlordIcon from '../Assets/menu-2.svg';
+import signOutIcon from '../Assets/menu-3.svg';
+import accountIcon from '../Assets/Account button.svg';
+//import ratingsIcon from '../Assets/ratings-icon.svg';
+//import bookmarksIcon from '../Assets/bookmarks-icon.svg';
 import './SideMenu.css'; // Include CSS styles for the side menu
 
 function SideMenu() {
@@ -23,14 +31,54 @@ function SideMenu() {
         </div>
         <img src={require('../Assets/official logo.svg').default} alt="Logo" className="menu-logo" />
         <ul>
-          <li>Homepage</li>
-          <li>Search</li>
-          <li>Add a Landlord</li>
-          <li>Sign Out</li>
+          <li>
+            {/* Add navigation using Link for Homepage */}
+            <Link to="/" onClick={toggleMenu}>
+              <img src={home} alt="Home" className="menu-icon" />
+              Homepage
+            </Link>
+          </li>
+          <li>
+            {/* Add navigation using Link for Search */}
+            <Link to="/SearchResults" onClick={toggleMenu}>
+              <img src={searchIcon} alt="Search" className="menu-icon" />
+              Search
+            </Link>
+          </li>
+          <li>
+            {/* Add navigation using Link for Add a Landlord */}
+            <Link to="/add-landlord" onClick={toggleMenu}>
+              <img src={addLandlordIcon} alt="Add a Landlord" className="menu-icon" />
+              Add a Landlord
+            </Link>
+          </li>
+          <li>
+            {/* Add navigation using Link for Sign Out */}
+            <Link to="/sign-out" onClick={toggleMenu}>
+              <img src={signOutIcon} alt="Sign Out" className="menu-icon" />
+              Sign Out
+            </Link>
+          </li>
           <hr />
-          <li>My Account</li>
-          <li>My Ratings</li>
-          <li>My Bookmarks</li>
+          <li>
+            {/* Add navigation using Link for My Account */}
+            <Link to="/account" onClick={toggleMenu}>
+              <img src={accountIcon} alt="My Account" className="menu-icon" />
+              My Account
+            </Link>
+          </li>
+          <li>
+            {/* Add navigation using Link for My Ratings */}
+            <Link to="/ratings" onClick={toggleMenu}>
+              My Ratings
+            </Link>
+          </li>
+          <li>
+            {/* Add navigation using Link for My Bookmarks */}
+            <Link to="/bookmarks" onClick={toggleMenu}>
+              My Bookmarks
+            </Link>
+          </li>
         </ul>
       </div>
     </div>

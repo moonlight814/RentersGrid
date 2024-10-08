@@ -50,11 +50,11 @@
   }
   .search-bar-container {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 100px; /* Space above the search bar */
-    padding: 10px; /* Padding around the search bar */
-  }
+    top: 200px;
+    position: absolute;
+    margin-left: -35%; /* Adjust this value to move it left */
+    width: fit-content;      /* Adjusts the container width to fit its contents */
+      }
   
   .search-dropdown {
     padding: 9.5px;
