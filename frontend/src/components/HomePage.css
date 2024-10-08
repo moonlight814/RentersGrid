@@ -84,3 +84,9 @@
   .search-button:hover {
     background-color: #77a551; /* Darker green on hover */
   }
+
+  #map{
+      height:400px;
+      width: 100%;
+      border: 1px solid #ccc;
+  }

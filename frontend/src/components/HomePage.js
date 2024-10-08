@@ -18,11 +18,35 @@ import './HomePage.css';  // Create a CSS file for styling if needed
   };*/
   
 
-  function HomePage() {
-    return (
-      <div className="main-container">
-              <SideMenu />
+function HomePage() {
+    const initMap = () => {
+        const map = new window.google.maps.Map(document.getElementById("map"),
+            {
+                zoom: 8,
+                center: { lat: 40.712776, lng: -74.005974 }
+            });
 
+        properties.forEach((property) => {
+            const marker = new window.google.maps.Marker({
+                position: { lat: property.latitude, lng: property.longitude },
+                map,
+                title: property.name,
+
+            });
+        });
+    };
+    return (
+        <div className="main-container">
+            <SideMenu />
+            <h1>LandlordP Properties</h1>
+            <div id="map" style={{ height: '400px', width: '100%' }}></div>
+            {/* Loadd the Google Maps Javascript API */}
+            <script
+                src={`https://maps.googleapis.com/maps/api/js?key= AIzaSyC_szfIV0fxMt05xhWEgJtgbyd1BnBZrhk = initmap`}
+                async
+                defer
+            ></script>
+  
         <header className="headerhp">
           <div className="logohp-container">
             <img
