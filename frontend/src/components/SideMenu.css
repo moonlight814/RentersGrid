@@ -1,0 +1,67 @@
+/* Basic styling for the menu button */
+.menu-button {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    cursor: pointer;
+    font-size: 24px;
+    color: #8EC860;
+  }
+  
+  .menu-icon {
+    font-size: 80px;
+  }
+  
+  /* Styling for the side menu */
+  .side-menu {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #8B8B8B;
+    overflow-x: hidden;
+    transition: 0.s;
+    padding-top: 60px;
+    z-index: 1;
+  }
+  
+  .side-menu.open {
+    width: 250px;
+  }
+  
+  /* Close button styling */
+  .close-button {
+    position: absolute;
+    top: 20px;
+    right: 25px;
+    font-size: 36px;
+    cursor: pointer;
+    color: white;
+  }
+  
+  .side-menu img.menu-logo {
+    display: block;
+    margin: 0 auto;
+    width: 200px;
+    margin-bottom: 20px;
+  }
+  
+  .side-menu ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .side-menu ul li {
+    padding: 8px 16px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 25px;
+    color: white;
+    display: block;
+  }
+  
+  .side-menu ul li:hover {
+    background-color: #575757;
+  }
+  
