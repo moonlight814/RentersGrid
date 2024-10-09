@@ -17,6 +17,10 @@ import './HomePage.css';  // Create a CSS file for styling if needed
     navigate(`/search-results?searchBy=${searchType}&query=${searchInput}`);
   };*/
   
+  //function to refresh page
+  const refreshPage = () => {
+    window.location.reload();
+  }
 
   function HomePage() {
     return (
@@ -28,6 +32,7 @@ import './HomePage.css';  // Create a CSS file for styling if needed
             <img
               src={OfficialLogo}
               alt="Official Logo"
+              onClick={refreshPage}
               className="center-logo"
             />
           </div>

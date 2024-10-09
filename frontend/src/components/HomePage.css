@@ -22,10 +22,12 @@
     width: 450px; /* Full width */
   }
   
+  /* company logo */
   .center-logo {
     width: 400px; /* Adjust size as needed */
     height: auto;
     margin-top: 30px; /* Top margin to fine-tune the position */
+    cursor: pointer; /* makes the company logo clickable*/
   }
 
   /* Account button styles */
