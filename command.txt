@@ -1,0 +1,9 @@
+Backend:
+cd ~/Documents/RentersGrid/backend
+source venv/bin/activate
+python3 app.py
+
+Frontend:
+
+cd ~/Documents/RentersGrid/frontend
+npm start

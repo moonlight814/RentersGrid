@@ -56,7 +56,7 @@ function SideMenu() {
             {/* Add navigation using Link for Sign Out */}
             <Link to="/sign-out" onClick={toggleMenu}>
               <img src={signOutIcon} alt="Sign Out" className="menu-icon" />
-              Sign Out
+              Sign In / Sign Out
             </Link>
           </li>
           <hr />

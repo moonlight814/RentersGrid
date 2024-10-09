@@ -9,16 +9,9 @@ import SideMenu from './SideMenu'; // Import the SideMenu component
 import { useNavigate } from 'react-router-dom';
 import './HomePage.css';  // Create a CSS file for styling if needed
 
-/*const HomePage = () => {
-  const [searchInput, setSearchInput] = useState('');
-  const navigate = useNavigate();
-
-  const handleSearch = () => {
-    navigate(`/search-results?searchBy=${searchType}&query=${searchInput}`);
-  };*/
-  
 
   function HomePage() {
+    const navigate = useNavigate();
     return (
       <div className="main-container">
               <SideMenu />
@@ -37,6 +30,8 @@ import './HomePage.css';  // Create a CSS file for styling if needed
             src={SubmitLandlordRate}
             alt="Submit Landlord Rate"
             className="left-icon"
+            onClick={() => navigate('/add-landlord')}  // Navigate to the landlord rate page
+            style={{ cursor: 'pointer' }} 
           />
           
           {/* Right Image: Account Button */}
@@ -44,6 +39,8 @@ import './HomePage.css';  // Create a CSS file for styling if needed
             src={AccountButton}
             alt="Account Button"
             className="account-right"
+            onClick={() => navigate('/myaccount')}  // Navigate to the account page
+            style={{ cursor: 'pointer' }}
           />
         </div>
         </header>
