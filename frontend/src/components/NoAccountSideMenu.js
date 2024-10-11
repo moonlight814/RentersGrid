@@ -2,12 +2,12 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import home from '../Assets/home.svg'; // Example icons
 import searchIcon from '../Assets/menu-1.svg';
+
 import addLandlordIcon from '../Assets/menu-2.svg';
-import signOutIcon from '../Assets/menu-3.svg';
-import accountIcon from '../Assets/Account button.svg';
+import signIn from '../Assets/signin signup.svg';
 //import ratingsIcon from '../Assets/ratings-icon.svg';
 //import bookmarksIcon from '../Assets/bookmarks-icon.svg';
-import './SideMenu.css'; // Include CSS styles for the side menu
+import './NoAccountSideMenu.css'; // Include CSS styles for the side menu
 
 function SideMenu() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -20,65 +20,47 @@ function SideMenu() {
     return (
         <div>
             {/* Menu button */}
-            <div className="menu-button" onClick={toggleMenu}>
-                <span className="menu-icon">&#9776;</span>
-            </div>
+            <button className="menu-button" onClick={toggleMenu}>
+                <img src={require('../Assets/menu-bar.svg').default} alt="menuBar" className="menu-bar" />
+            </button>
 
             {/* Side menu */}
             <div className={`side-menu ${isMenuOpen ? 'open' : ''}`}>
-                <div className="close-button" onClick={toggleMenu}>
-                    &times;
-                </div>
-                <img src={require('../Assets/official logo.svg').default} alt="Logo" className="menu-logo" />
+                <button className="close-button" onClick={toggleMenu} >
+                    <img src={require('../Assets/closebuttonforpopupmenu.svg').default} alt="close" className="close-icon" />
+                </button>
+                <img src={require('../Assets/people icon.svg').default} alt="Logo" className="menu-logo" />
                 <ul>
                     <li>
                         {/* Add navigation using Link for Homepage */}
                         <Link to="/" onClick={toggleMenu}>
                             <img src={home} alt="Home" className="menu-icon" />
-                            Homepage
+                            <span className="menu-text">Homepage</span>
                         </Link>
                     </li>
                     <li>
                         {/* Add navigation using Link for Search */}
                         <Link to="/SearchResults" onClick={toggleMenu}>
-                            <img src={searchIcon} alt="Search" className="menu-icon" />
-                            Search
+                            <img src={searchIcon} alt="Search" className="menu-search" />
+                            <span className="menu-text">Search</span>
                         </Link>
                     </li>
                     <li>
                         {/* Add navigation using Link for Add a Landlord */}
                         <Link to="/add-landlord" onClick={toggleMenu}>
                             <img src={addLandlordIcon} alt="Add a Landlord" className="menu-icon" />
-                            Add a Landlord
+                            <span className="menu-text">Add a Landlord </span>
                         </Link>
                     </li>
+                   
                     <li>
-                        {/* Add navigation using Link for Sign Out */}
-                        <Link to="/sign-out" onClick={toggleMenu}>
-                            <img src={signOutIcon} alt="Sign Out" className="menu-icon" />
-                            Sign Out
+                        {/* Add navigation using Link for Sign in page */}
+                        <Link to="/Sign in" onClick={toggleMenu}>
+                            <img src={signIn} alt="Sign in/Sign up" className="menu-icon" />
+                            <span className="menu-text">Sign In / Sign Up</span>
                         </Link>
                     </li>
-                    <hr />
-                    <li>
-                        {/* Add navigation using Link for My Account */}
-                        <Link to="/account" onClick={toggleMenu}>
-                            <img src={accountIcon} alt="My Account" className="menu-icon" />
-                            My Account
-                        </Link>
-                    </li>
-                    <li>
-                        {/* Add navigation using Link for My Ratings */}
-                        <Link to="/ratings" onClick={toggleMenu}>
-                            My Ratings
-                        </Link>
-                    </li>
-                    <li>
-                        {/* Add navigation using Link for My Bookmarks */}
-                        <Link to="/bookmarks" onClick={toggleMenu}>
-                            My Bookmarks
-                        </Link>
-                    </li>
+                    
                 </ul>
             </div>
         </div>

@@ -59,7 +59,7 @@ function SideMenu() {
               Sign Out
             </Link>
           </li>
-          <hr />
+    
           <li>
             {/* Add navigation using Link for My Account */}
             <Link to="/account" onClick={toggleMenu}>

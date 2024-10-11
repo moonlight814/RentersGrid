@@ -4,7 +4,7 @@ import AccountButton from '../Assets/Account button.svg';
 import SubmitLandlordRate from '../Assets/submit landlord rate.svg';
 
 
-import SideMenu from './SideMenu'; // Import the SideMenu component
+import SideMenu from './NoAccountSideMenu'; // Import the SideMenu component
 
 import { useNavigate } from 'react-router-dom';
 import './HomePage.css';  // Create a CSS file for styling if needed
@@ -40,7 +40,7 @@ function HomePage() {
                         className="left-icon"
                     />
 
-                    {/* Right Image: Sign in or sign up */}
+                    {/* Right Image: Account Button */}
                     <img
                         src={AccountButton}
                         alt="Account Button"
