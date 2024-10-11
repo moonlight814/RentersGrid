@@ -18,11 +18,12 @@ import './HomePage.css';  // Create a CSS file for styling if needed
   };*/
   
 
-  function HomePage() {
-    return (
-      <div className="main-container">
-              <SideMenu />
+function HomePage() {
 
+    return (
+        <div className="main-container">
+            <SideMenu />
+  
         <header className="headerhp">
           <div className="logohp-container">
             <img

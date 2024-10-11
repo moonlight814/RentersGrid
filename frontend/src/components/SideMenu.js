@@ -25,10 +25,10 @@ function SideMenu() {
       </div>
 
       {/* Side menu */}
-      <div className={`side-menu ${isMenuOpen ? 'open' : ''}`}>
-        <div className="close-button" onClick={toggleMenu}>
-          &times;
-        </div>
+          <div className={`side-menu ${isMenuOpen ? 'open' : ''}`}>
+              <button className="close-button" onClick={toggleMenu} >
+                  <img src={require('../Assets/closebuttonforpopupmenu.svg').default} alt="close" className="close-icon" />
+                  </button>
         <img src={require('../Assets/official logo.svg').default} alt="Logo" className="menu-logo" />
         <ul>
           <li>
@@ -59,7 +59,7 @@ function SideMenu() {
               Sign Out
             </Link>
           </li>
-          <hr />
+    
           <li>
             {/* Add navigation using Link for My Account */}
             <Link to="/account" onClick={toggleMenu}>

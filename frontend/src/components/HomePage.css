@@ -84,3 +84,29 @@
   .search-button:hover {
     background-color: #77a551; /* Darker green on hover */
   }
+
+  /* This is what is needed when we minimize the screen all the icons get smaller*/
+
+  @media(min-width:180px)and (max-width:1024px){
+      .main-container{
+          width:100%;
+          padding:20px;
+      }
+      .buttons-container{
+          font-size: 14px;
+          justify-content:space-around;
+      }
+    .logohp-container img {
+        width: 300px;
+    }
+    .account-right{
+        width:45px;
+    }
+    .left-icon{
+        width:50px;
+    }
+    .search-input{
+        width:300px;
+    }
+      
+  }
