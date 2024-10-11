@@ -44,6 +44,7 @@ function SideMenu() {
               <img src={searchIcon} alt="Search" className="menu-icon" />
               Search
             </Link>
+
           </li>
           <li>
             {/* Add navigation using Link for Add a Landlord */}
