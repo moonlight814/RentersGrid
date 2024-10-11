@@ -1,37 +1,54 @@
 import React, { useState } from 'react';
 import OfficialLogo from '../Assets/official logo.svg';
 import AccountButton from '../Assets/Account button.svg';
-import SubmitLandlordRate  from '../Assets/submit landlord rate.svg';
-
+import SubmitLandlordRate from '../Assets/submit landlord rate.svg';
+import DownArrow from '../Assets/downward.svg'; // Make sure the path to the arrow is correct
+import Helvetica from '../fonts/Helvetica.ttf'; // Adjust path as necessary
 
 import SideMenu from './SideMenu'; // Import the SideMenu component
-
 import { useNavigate } from 'react-router-dom';
-import './HomePage.css';  // Create a CSS file for styling if needed
+import './HomePage.css';  // Import the styling
 
-/*const HomePage = () => {
-  const [searchInput, setSearchInput] = useState('');
-  const navigate = useNavigate();
+// Function to refresh the page
+const refreshPage = () => {
+  window.location.reload();
+}
 
-  const handleSearch = () => {
-    navigate(`/search-results?searchBy=${searchType}&query=${searchInput}`);
-  };*/
-  
+function HomePage() {
+  const [selectedOption, setSelectedOption] = useState('landlord'); // Default option
+  const [dropdownOpen, setDropdownOpen] = useState(false); // To toggle the dropdown
 
-  function HomePage() {
-    return (
-      <div className="main-container">
-              <SideMenu />
+  const handleDropdownToggle = () => {
+    setDropdownOpen(!dropdownOpen);
+  };
 
-        <header className="headerhp">
-          <div className="logohp-container">
-            <img
-              src={OfficialLogo}
-              alt="Official Logo"
-              className="center-logo"
-            />
-          </div>
-          <div className="buttons-container">
+  const handleOptionSelect = (value) => {
+    setSelectedOption(value);
+    setDropdownOpen(false); // Close the dropdown after selection
+  };
+
+  const options = [
+    { value: 'landlord', label: 'Landlord Name' },
+    { value: 'property', label: 'Property Name' },
+    { value: 'address', label: 'Address' },
+    { value: 'city', label: 'City' },
+    { value: 'zipcode', label: 'Zip Code' },
+  ];
+
+  return (
+    <div className="main-container">
+      <SideMenu />
+
+      <header className="headerhp">
+        <div className="logohp-container">
+          <img
+            src={OfficialLogo}
+            alt="Official Logo"
+            onClick={refreshPage}
+            className="center-logo"
+          />
+        </div>
+        <div className="buttons-container">
           {/* Left Image: Submit Landlord Rate */}
           <img
             src={SubmitLandlordRate}
@@ -46,27 +63,43 @@ import './HomePage.css';  // Create a CSS file for styling if needed
             className="account-right"
           />
         </div>
-        </header>
-        
+      </header>
+
       {/* Search Menu */}
       <div className="search-bar-container">
-        <select className="search-dropdown">
-          <option value="landlord">Landlord Name</option>
-          <option value="Property">Property Name</option>
-          <option value="address">Address</option>
-          <option value="City">City</option>
-          <option value="zipcode">Zip Code</option>
+        <div className="dropdown-container">
+          <div className="dropdown-selected" onClick={handleDropdownToggle}>
+            <span>{options.find(option => option.value === selectedOption)?.label}</span>
+            <img
+              src={DownArrow}
+              alt="Down Arrow"
+              className={`down-arrow ${dropdownOpen ? 'open' : ''}`} // Add a class to rotate the arrow when open
+            />
+          </div>
 
-        </select>
+          {dropdownOpen && (
+            <ul className="dropdown-options">
+              {options.map((option) => (
+                <li
+                  key={option.value}
+                  onClick={() => handleOptionSelect(option.value)}
+                  className={`dropdown-item ${selectedOption === option.value ? 'selected' : ''}`}
+                >
+                  {option.label}
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
+
         <input
           type="text"
-          placeholder="Search by Location"
+          placeholder={`Search by ${options.find(option => option.value === selectedOption)?.label}`} // Dynamic placeholder
           className="search-input"
         />
-        <button className="search-button">Search</button>
       </div>
     </div>
   );
 }
-  
-  export default HomePage;
+
+export default HomePage;
