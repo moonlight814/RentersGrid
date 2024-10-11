@@ -11,6 +11,7 @@ function App() {
              
               <Route path="/" element={<NoAccountHomepage />} />
               <Route path="/homepage" element={<HomePage />} />
+              <Route path="/homepage/signin" element={<HomePage />} />
         {/* Other Routes */}
       </Routes>
     </Router>

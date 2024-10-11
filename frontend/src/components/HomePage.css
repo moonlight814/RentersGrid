@@ -1,186 +1,183 @@
+/* HomePage.css */
+
+/*Define the font*/
+@font-face {
+    font-family: 'Helvetica';
+    src: url('../fonts/Helvetica.ttf') format('truetype'); /* Adjust this path as necessary */
+    font-weight: normal;
+    font-style: normal;
+}
+/*Use font*/
+body {
+    font-family: 'Helvetica';
+}
+
+
 .main-container {
-  background-color: #4D55A5;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+    background-color: #4D55A5; /* Change to any color you prefer */
+    min-height: 100vh; /* Full viewport height */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .headerhp {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  margin-top: 20px;
+    width: 100%; /* Full width for the header */
+    display: flex;
+    justify-content: center; /* Center the content horizontally */
+    margin-top: 20px; /* Adjust top spacing if needed */
 }
 
+.logohp-container img {
+    display: flex;
+    justify-content: center; /* Center the logo */
+    align-items: center;
+    width: 450px; /* Full width */
+}
+
+/* company logo */
 .center-logo {
-  width: 400px;
-  height: auto;
-  cursor: pointer;
-  margin-bottom: 30px;
+    width: 400px; /* Adjust size as needed */
+    height: auto;
+    margin-top: 30px; /* Top margin to fine-tune the position */
+    cursor: pointer; /* makes the company logo clickable*/
 }
 
+/* Account button styles */
 .buttons-container {
-  display: flex;
-  align-items: center;
-  position: absolute;
-  right: 50px;
-  top: 20px;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    right: 50px; /* Adjust this to move the buttons more to the right */
+    top: 20px; /* Adjust top spacing as needed */
 }
 
 .left-icon {
-  width: 80px;
-  height: auto;
-  margin-right: 30px;
+    width: 80px; /* Adjust size as needed */
+    height: auto;
+    margin-right: 30px; /* Space between left and right icons */
 }
 
+/* Styling for the right icon (Account button) */
 .account-right {
-  width: 70px;
-  height: auto;
+    width: 70px; /* Adjust size as needed */
+    height: auto;
 }
 
-/* Updated Search Bar Container */
 .search-bar-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 0;
-  width: 70%; /* Centered and aligned width */
-  margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0; /* Ensure no gap between dropdown and input */
+    margin-top: 50px;
 }
 
+
+.search-input {
+    padding: 10px;
+    font-size: 16px;
+    width: 300px; /* Adjust width as needed */
+    border: 1px solid #ccc;
+    border-left: none; /* Remove left border to connect with dropdown */
+    border-radius: 0; /* No border radius to connect the sides */
+}
+
+/* Dropdown container */
 .dropdown-container {
-  position: relative;
-  display: flex;
-  align-items: center;
+    position: relative;
+    display: flex;
+    align-items: center;
 }
 
 .dropdown-selected {
-  padding: 10px 20px;
-  font-size: 16px;
-  border: 1px solid #ccc;
-  border-radius: 30px 0 0 30px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 200px;
-  background-color: white;
+    padding: 10px 20px; /* Add more padding to the left and right */
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 30px 0 0 30px; /* Rounded left corners */
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 200px;
+    background-color: white; /* Background for dropdown */
 }
 
 .down-arrow {
-  width: 20px;
-  height: auto;
-  margin-left: 10px;
-  transition: transform 0.3s ease;
+    width: 20px;
+    height: auto;
+    margin-left: 10px; /* Add some space between label and arrow */
+    transition: transform 0.3s ease;
 }
 
-.down-arrow.open {
-  transform: rotate(180deg);
-}
+    .down-arrow.open {
+        transform: rotate(180deg); /* Rotate the arrow when dropdown is open */
+    }
+
 
 .dropdown-options {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  background-color: white;
-  border: 1px solid #ccc;
-  border-radius: 0 0 10px 10px;
-  width: 100%;
-  z-index: 100;
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
+    position: absolute;
+    top: 100%; /* Position it just below the selected item */
+    left: 0;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 0 0 10px 10px; /* Rounded edges in dropdown window */
+    width: 100%;
+    z-index: 100; /* Ensure it appears above other elements */
+    list-style-type: none; /* Ensure bullet points are removed */
+    padding: 0; /* Remove default padding */
+    margin: 0; /* Remove default margin */
 }
 
 .dropdown-item {
-  padding: 10px;
-  cursor: pointer;
-}
-
-.dropdown-item:hover,
-.dropdown-item.selected {
-  background-color: #f0f0f0;
-}
-
-.search-input {
-  padding: 10px;
-  font-size: 16px;
-  width: 400px;
-  border: 1px solid #ccc;
-  border-radius: 0 30px 30px 0;
-  outline: none;
-}
-
-.search-input:focus {
-  border-color: #8ec860;
-  box-shadow: 0 0 5px rgba(142, 200, 96, 0.5);
-}
-
-/* Map Section */
-.map-section {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 20px;
-}
-
-.map-container {
-  width: 90%;
-  height: 60vh;
-}
-
-@media only screen and (max-width: 768px) {
-  .search-bar-container {
-    flex-direction: column;
-    width: 100%;
-    margin-bottom: 20px;
-  }
-
-  .map-container {
-    width: 95%;
-    height: 100vh;
-  }
-
-  .search-button {
-    padding: 11px 20px;
-    font-size: 16px;
-    background-color: #8EC860; /* Green button */
-    color: white;
-    border: none;
+    padding: 10px;
     cursor: pointer;
-    border-radius: 0 30px 30px 0; /* Rounded right corners */
-  }
-  
-  .search-button:hover {
-    background-color: #77a551; /* Darker green on hover */
-  }
+}
 
-  /* This is what is needed when we minimize the screen all the icons get smaller*/
+    .dropdown-item:hover, .dropdown-item.selected {
+        background-color: #f0f0f0; /* Highlight on hover or if selected */
+    }
 
-  @media(min-width:180px)and (max-width:1024px){
-      .main-container{
-          width:100%;
-          padding:20px;
-      }
-      .buttons-container{
-          font-size: 14px;
-          justify-content:space-around;
-      }
-    .logohp-container img {
-        width: 300px;
-    }
-    .account-right{
-        width:45px;
-    }
-    .left-icon{
-        width:50px;
-    }
-    .search-input{
-        width:300px;
-    }
-      
-  }
+/* Search input with rounded corners on both sides */
+.search-input {
+    padding: 10px;
+    font-size: 16px;
+    width: 400px; /* Adjust width as needed */
+    border: 1px solid #ccc;
+    border-radius: 0 30px 30px 0; /* Rounded corners for right side only */
+    outline: none; /* Removes the outline on focus */
+}
 
+    /* Optional: Add focus effect */
+    .search-input:focus {
+        border-color: #8EC860; /* Change border color on focus */
+        box-shadow: 0 0 5px rgba(142, 200, 96, 0.5); /* Add a slight shadow */
+    }
 
+/* Centering the dropdown container and search input */
+.search-bar-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0; /* Ensure no gap between dropdown and input */
+    margin-top: 50px;
+}
+
+.map-section {
+    margin-top: 400px;
+    padding: 60px;
+}
+
+h1, h2 {
+    margin: 200px 0;
+}
+
+/*Resizing the menu popup when the screen gets smaller*/
+@media(min-width:180px)and (max-width:1024px) {
+    .side-menu {
+        padding: 30px;
+    }
+
+        .side-menu.open {
+            width: 250px;
+        }
+}
