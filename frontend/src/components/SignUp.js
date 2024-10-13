@@ -81,7 +81,7 @@ function SignUp() {
                         {/* Sign In */}
                         <div className="sign-in">
                             <h3 className="small-sign-in-text">Already have an account?</h3>
-                            <Link to="/SignIn" className="sign-ip-link">Sign Up</Link>
+                            <Link to="/SignIn" className="sign-in-link">Sign In</Link>
                         </div>
 
 
