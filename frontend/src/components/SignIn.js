@@ -4,6 +4,8 @@ import OfficialLogo from '../Assets/official logo.svg';
 import AccountButton from '../Assets/Account button.svg';
 import SubmitLandlordRate from '../Assets/submit landlord rate.svg';
 import MenuAlt from '../Assets/menu-alt.svg';
+import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import SideMenu from './SideMenu';
 
@@ -78,7 +80,7 @@ function SignIn() {
                         {/* Sign Up */}
                         <div className="sign-up">
                             <h3 className="small-sign-up-text">Don't have an account?</h3>
-                            <a href="SignUp" className="sign-up-link">Sign Up</a>
+                            <Link to="/SignUp" className="sign-up-link">Sign Up</Link>
                         </div>
 
                         {/* Forgot Password */}
