@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate for routing
+
 import OfficialLogo from '../Assets/official logo.svg';
 import AccountButton from '../Assets/Account button.svg';
 import SubmitLandlordRate from '../Assets/submit landlord rate.svg';
@@ -6,9 +8,7 @@ import Helvetica from '../fonts/Helvetica.ttf'; // Adjust path as necessary
 import DownArrow from '../Assets/downward.svg'; // Make sure the path to the arrow is correct
 import Map from '../components/Map';
 import SideMenu from './NoAccountSideMenu'; // Import the SideMenu component
-import { useNavigate } from 'react-router-dom';
 import './NoAccountHomepage.css';  // Create a CSS file for styling if needed
-
 /*const HomePage = () => {
   const [searchInput, setSearchInput] = useState('');
   const navigate = useNavigate();
@@ -26,6 +26,7 @@ const refreshPage = () => {
 function NoAccountHomePage() {
     const [selectedOption, setSelectedOption] = useState('landlord'); // Default option
     const [dropdownOpen, setDropdownOpen] = useState(false); // To toggle the dropdown
+    const navigate = useNavigate();
 
     const handleDropdownToggle = () => {
         setDropdownOpen(!dropdownOpen);
@@ -36,6 +37,10 @@ function NoAccountHomePage() {
         setDropdownOpen(false); // Close the dropdown after selection
     };
 
+    //function to handle account button click
+    const handleAccountButtonClick = () => {
+        navigate('/signin'); //navigate to the sign in page
+    }
     const options = [
         { value: 'landlord', label: 'Landlord Name' },
         { value: 'property', label: 'Property Name' },
@@ -70,6 +75,7 @@ function NoAccountHomePage() {
                         src={AccountButton}
                         alt="Account Button"
                         className="account-right"
+                        onClick={handleAccountButtonClick} //This adds a click handler to account button
                     />
                 </div>
             </header>

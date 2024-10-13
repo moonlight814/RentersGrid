@@ -119,6 +119,7 @@ function HomePage() {
             </section>
 
         </div>
+        
        );
     }
 
