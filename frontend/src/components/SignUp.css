@@ -8,7 +8,19 @@ html, body {
     overflow-x: hidden; /* Prevent horizontal scrolling */
   }
 
-  .main-container {
+  /* Define the font */
+  @font-face {
+    font-family: 'Helvetica';
+    src: url('../fonts/Helvetica.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  body {
+    font-family: 'Helvetica';
+  }
+
+  .sign-up-main-container {
     background-color: #4d55a5;
     min-height: 100vh;
     display: flex;
@@ -35,14 +47,14 @@ html, body {
     cursor: pointer;
   }
 
-  .logo-container {
+  .sign-up-logo-container {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
   }
 
-  .center-logo {
+  .sign-up-center-logo {
     height: auto;
     width: 400px;
     margin-top: 70px;
@@ -67,6 +79,14 @@ html, body {
     background-color: #fff;
     border-radius: 20px;
     top: 200px;
+  }
+
+  .sign-up-form-box-login {
+    position: absolute;
+    justify-content: flex;
+    flex-direction: column;
+    left: 40px;
+    align-items: center;
   }
 
   /* Sign up text in middle of box */
@@ -156,7 +176,7 @@ html, body {
   
   .sign-in-link {
     position: absolute;
-    right: -297px;
+    right: -300px;
     bottom: -393px;
     color: #93c83d;
     text-decoration: none;

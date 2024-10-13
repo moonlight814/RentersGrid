@@ -11,15 +11,12 @@ import SideMenu from './SideMenu';
 
 function SignIn() {
     return (
-        <div className="main-container">  
+        <div className="sign-in-main-container">  
                  <SideMenu />
             <header>
                 
-                <nav className="navigation">
-                    
-                </nav>
                 {/* Home Page + logo */}
-                <div className="logo-container">
+                <div className="sign-in-logo-container">
                     <a href="/">
                     <img
                         src={OfficialLogo}
@@ -55,7 +52,7 @@ function SignIn() {
             </header>
 
             <div className="sign-in-wrapper">
-                <div className="form-box-login">
+                <div className="sign-in-form-box-login">
                     <h1 className="sign-in-text">Sign In</h1>
                     <form action="#">
                         {/* Email */}

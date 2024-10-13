@@ -10,10 +10,10 @@ import { Link } from 'react-router-dom';
 
 function SignUp() {
     return (
-        <div className="main-container">
+        <div className="sign-up-main-container">
             <SideMenu />
             <header>
-            <div className="logo-container">
+            <div className="sign-up-logo-container">
                 <a href="/">
                 <img
                     src={OfficialLogo}
@@ -48,7 +48,7 @@ function SignUp() {
             </header>
 
             <div className="sign-up-wrapper">
-                <div className="form-box-login">
+                <div className="sign-up-form-box-login">
                     <h1 className="sign-up-text">Sign Up</h1>
                     <form action="#">
                         {/* Email */}
@@ -81,7 +81,7 @@ function SignUp() {
                         {/* Sign In */}
                         <div className="sign-in">
                             <h3 className="small-sign-in-text">Already have an account?</h3>
-                            <Link to="/SignIn" className="sign-in-link">Sign In</Link>
+                            <Link to="/SignIn" className="sign-in-link">Sign Up</Link>
                         </div>
 
 

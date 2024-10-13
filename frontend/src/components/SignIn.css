@@ -8,7 +8,15 @@ html, body {
     overflow-x: hidden; /* Prevent horizontal scrolling */
   }
 
-.main-container {
+  /* Define the font */
+  @font-face {
+    font-family: 'Helvetica';
+    src: url('../fonts/Helvetica.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+.sign-in-main-container {
     background-color: #4D55A5;
     min-height: 100vh;
     display: flex;
@@ -36,14 +44,14 @@ html, body {
     cursor: pointer;
 }
 
-.logo-container {
+.sign-in-logo-container {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
 }
 
-.center-logo {
+.sign-in-center-logo {
     width: 400px;
     height: auto;
     margin-top: 70px;
@@ -96,7 +104,7 @@ html, body {
 }
 
 /* Box containing information */
-.form-box-login {
+.sign-in-form-box-login {
     position:absolute;
     justify-content: flex;
     flex-direction:column;
