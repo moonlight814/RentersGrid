@@ -18,7 +18,7 @@ function SignUp() {
                 <img
                     src={OfficialLogo}
                     alt="Official Logo"
-                    className="center-logo"
+                    className="sign-up-center-logo"
                 />
                 </a>
             </div>
@@ -27,22 +27,22 @@ function SignUp() {
             <img
                 src={MenuAlt}
                 alt="background"
-                className="background-image"
+                className="sign-up-background-image"
             />
 
             {/* Left Image: Submit Landlord Rate */}
             <img
                 src={SubmitLandlordRate}
                 alt="Submit Landlord Rate"
-                className="left-icon"
+                className="sign-up-left-icon"
             />
 
             {/* Right Image: Account Button */}
-            <a href="SignIn">
+            <a href="signin">
                 <img
                     src={AccountButton}
                     alt="Account Button"
-                    className="account-right"
+                    className="sign-up-account-right"
                 />
             </a>
             </header>
