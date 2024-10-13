@@ -17,7 +17,7 @@ html, body {
 }
 
 
-.left-icon {
+.sign-in-left-icon {
     width: 80px;  /* Adjust size as needed */
     height: auto;
     margin-right: 30px;  /* Space between left and right icons */
@@ -26,7 +26,7 @@ html, body {
     right: 120px;
 }
 
-.account-right {
+.sign-in-account-right {
     width: 70px;  /* Adjust size as needed */
     height: auto;
     position:absolute;

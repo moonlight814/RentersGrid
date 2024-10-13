@@ -22,7 +22,7 @@ function SignIn() {
                     <img
                         src={OfficialLogo}
                         alt="Official Logo"
-                        className="center-logo"
+                        className="sign-in-center-logo"
                     />
                     </a>
                 </div>
@@ -38,7 +38,7 @@ function SignIn() {
                 <img
                     src={SubmitLandlordRate}
                     alt="Submit Landlord Rate"
-                    className="left-icon"
+                    className="sign-in-left-icon"
                 />
           
 
@@ -47,7 +47,7 @@ function SignIn() {
                 <img
                     src={AccountButton}
                     alt="Account Button"
-                    className="account-right"
+                    className="sign-in-account-right"
                 />
                 </a>
             </header>
