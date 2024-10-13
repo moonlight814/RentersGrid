@@ -55,7 +55,7 @@ function SideMenu() {
                    
                     <li>
                         {/* Add navigation using Link for Sign in page */}
-                        <Link to="/Signin" onClick={toggleMenu}>
+                        <Link to="/SignIn" onClick={toggleMenu}>
                             <img src={signIn} alt="Sign in/Sign up" className="menu-icon" />
                             <span className="menu-text">Sign In / Sign Up</span>
                         </Link>
