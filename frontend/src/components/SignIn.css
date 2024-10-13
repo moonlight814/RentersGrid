@@ -50,7 +50,7 @@ html, body {
 }
 
 /* Image with 3 people */
-.background-image {
+.sign-in-background-image {
     right: 30px;
     position: absolute;
     bottom: 115px;
@@ -77,7 +77,7 @@ html, body {
     font-size: 55px !important;
     font-weight: bolder;
     white-space: nowrap;
-    top: 50px;
+    top: -120px;
     left: 0px;
 }
 

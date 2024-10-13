@@ -31,7 +31,7 @@ function SignIn() {
                 <img
                     src={MenuAlt}
                     alt="background"
-                    className="background-image"
+                    className="sign-in-background-image"
                 />
 
                 {/* Left Image: Submit Landlord Rate */}
@@ -78,7 +78,7 @@ function SignIn() {
                         {/* Sign Up */}
                         <div className="sign-up">
                             <h3 className="small-sign-up-text">Don't have an account?</h3>
-                            <a href="SignUp" className="sign-up-link">Sign Up</a>
+                            <a href="signup" className="sign-up-link">Sign Up</a>
                         </div>
 
                         {/* Forgot Password */}
