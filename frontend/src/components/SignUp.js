@@ -5,6 +5,8 @@ import AccountButton from '../Assets/Account button.svg';
 import SubmitLandlordRate from '../Assets/submit landlord rate.svg';
 import MenuAlt from '../Assets/menu-alt.svg';
 import SideMenu from './SideMenu';
+import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 function SignUp() {
     return (
@@ -79,7 +81,7 @@ function SignUp() {
                         {/* Sign In */}
                         <div className="sign-in">
                             <h3 className="small-sign-in-text">Already have an account?</h3>
-                            <a href="SignIn" className="sign-in-link">Sign In</a>
+                            <Link to="/SignIn" className="sign-ip-link">Sign Up</Link>
                         </div>
 
 
