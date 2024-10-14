@@ -94,9 +94,9 @@ html, body {
     color:#4d55a5;
     position: absolute;
     font-size: 55px !important;
-    font-weight:bolder;
     white-space: nowrap;
     bottom: -200px;
+    font-family: 'Helvetica-Bold';
   }
 
   .sign-up-input-box {
@@ -106,6 +106,7 @@ html, body {
   }
 
   .sign-up-email-text{
+    font-family: 'Helvetica-Bold';
     color: #4d55a5;
     font-weight: bold;
     position: absolute;
@@ -121,9 +122,11 @@ html, body {
     bottom: -155px;
     padding: 10px;
     font-size: large;
+    font-family: 'Helvetica';
   }
 
   .sign-up-password-text {
+    font-family: 'Helvetica-Bold';
     color: #4d55a5;
     font-weight: bold;
     position: absolute;
@@ -139,9 +142,11 @@ html, body {
     bottom: -185px;
     padding: 10px;
     font-size: large;
+    font-family: 'Helvetica';
   }
 
   .sign-up-password-confirm-text {
+    font-family: 'Helvetica-Bold';
     color: #4d55a5;
     font-weight: bold;
     position: absolute;
@@ -158,6 +163,7 @@ html, body {
     padding: 10px;
     font-size: large;
     bottom: -275px;
+    font-family: 'Helvetica';
   }
 
   .sign-up-submit-button {
@@ -176,8 +182,8 @@ html, body {
   
   .sign-in-link {
     position: absolute;
-    right: -300px;
-    bottom: -393px;
+    right: -295px;
+    bottom: -392px;
     color: #93c83d;
     text-decoration: none;
     font-size: small;
