@@ -9,12 +9,25 @@ html, body {
   }
 
   /* Define the font */
+
   @font-face {
+    font-family: 'Helvetica';
+    src: url('../fonts/Helvetica-Bold.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
     font-family: 'Helvetica';
     src: url('../fonts/Helvetica.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
-  }
+}
+/*Use font*/
+body, .side-menu {
+    font-family: 'Helvetica';
+    font-family: 'Helvetica-Bold';
+}
+
 
 .sign-in-main-container {
     background-color: #4D55A5;
@@ -80,6 +93,7 @@ html, body {
 
 /* Sign in text in middle of box */
 .sign-in-text {
+    font-family: 'Helvetica-Bold';
     color:#4D55A5;
     position: absolute;
     font-size: 55px !important;
@@ -90,15 +104,15 @@ html, body {
 }
 
 .sign-in-email-text {
+    font-family: 'Helvetica-Bold';
     color:#4D55A5;
-    font-weight: bold;
     position: absolute;
     bottom: -145px;
 }
 
 .sign-in-password-text {
+    font-family: 'Helvetica-Bold';
     color: #4D55A5;
-    font-weight: bold;
     position: absolute;
     bottom: -175px;
 }
@@ -156,6 +170,7 @@ html, body {
 }
 
 .sign-up-link {
+    font-family: 'Helvetica';
     position: absolute;
     right: -303px;
     bottom: -337px;
@@ -166,6 +181,7 @@ html, body {
 }
 
 .reset-password-link {
+    font-family: 'Helvetica';
     position: absolute;
     right: -335px;
     bottom: -357px;
@@ -177,7 +193,7 @@ html, body {
 .small-sign-up-text {
     position: absolute;
     font-size: small;
-    font-family: 'Helvetica', 'Arial', sans-serif;
+    font-family: 'Helvetica';
     bottom: -350px;
     right: -250px;
 }
@@ -185,11 +201,11 @@ html, body {
 .password-reset-text {
     position: absolute;
     font-size: small;
-    font-family: 'Helvetica', 'Arial', sans-serif;
+    font-family: 'Helvetica';
     bottom:-370px;
     right: -233px;
 }
 
 body {
-    font-family: 'Helvetica', 'Arial', sans-serif;
+    font-family: 'Helvetica';
 }
