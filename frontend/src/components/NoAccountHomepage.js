@@ -37,10 +37,7 @@ function NoAccountHomePage() {
         setDropdownOpen(false); // Close the dropdown after selection
     };
 
-    //function to handle account button click
-    const handleAccountButtonClick = () => {
-        navigate('/signin'); //navigate to the sign in page
-    }
+
     const options = [
         { value: 'landlord', label: 'Landlord Name' },
         { value: 'property', label: 'Property Name' },
@@ -52,14 +49,12 @@ function NoAccountHomePage() {
     return (
         <div className="main-container">
             <SideMenu />
-
             <header className="headerhp">
-                <div className="logohp-container">
+                <div className="main-logo">
                     <img
                         src={OfficialLogo}
                         alt="Official Logo"
                         onClick={refreshPage}
-                        className="center-logo"
                     />
                 </div>
                 <div className="buttons-container">
@@ -67,15 +62,16 @@ function NoAccountHomePage() {
                     <img
                         src={SubmitLandlordRate}
                         alt="Submit Landlord Rate"
-                        className="left-icon"
+                        className="noc-left-icon"
+                        onClick={() => navigate('/AddLandlord')}
                     />
 
                     {/* Right Image: Account Button */}
                     <img
                         src={AccountButton}
                         alt="Account Button"
-                        className="account-right"
-                        onClick={handleAccountButtonClick} //This adds a click handler to account button
+                        className="noc-right-icon" // Adjusted class name
+                        onClick={() => navigate('/signin')} // Directly use navigate in the onClick
                     />
                 </div>
             </header>
