@@ -91,4 +91,19 @@
   
   h1, h2 {
     margin: 200px 0;
+<<<<<<< Updated upstream
   }
+=======
+}
+
+/*Resizing the menu popup when the screen gets smaller*/
+@media(min-width:180px)and (max-width:1024px) {
+    .side-menu {
+        padding: 30px;
+    }
+
+        .side-menu.open {
+            width: 250px;
+        }
+}
+>>>>>>> Stashed changes
