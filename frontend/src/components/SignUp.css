@@ -52,6 +52,7 @@ html, body {
     justify-content: center;
     align-items: center;
     width: 100%;
+    
   }
 
   .sign-up-center-logo {
@@ -95,7 +96,7 @@ html, body {
     position: absolute;
     font-size: 55px !important;
     white-space: nowrap;
-    bottom: -200px;
+    bottom: -150px;
     font-family: 'Helvetica-Bold';
   }
 
@@ -197,3 +198,10 @@ html, body {
     bottom: -405px;
     right: -250px;
   }
+
+  /*Error message will be red*/
+.error {
+    color: red;
+    bottom: -300px;
+    
+}

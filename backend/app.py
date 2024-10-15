@@ -49,6 +49,12 @@ def signup():
     #hashing the password that a user inputs:
     hashed_password = bcrypt.generate_password_hash(password).decode('utf-8')
 
+    #check if the email already exists:
+    existing_user = db.users.find_one({"email":email})
+    if existing_user:
+        return jsonify({"error":"Email already exists"}),400
+
+
     try:
         #get the next userId
         user_id = get_next_user_id()
