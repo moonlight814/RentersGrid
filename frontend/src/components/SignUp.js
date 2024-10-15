@@ -17,13 +17,13 @@ function SignUp() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
-    const [message, setMessage] = useState('');
+    const [error, setError] = useState('');
 
     const handleSignUp = async (e) => {
         e.preventDefault();
 
         if (password != confirmPassword) {
-            setMessage("Passwords do not match");
+            setError("Passwords do not match");
             return;
         }
 
@@ -32,12 +32,14 @@ function SignUp() {
                 email,
                 password
             });
-            setMessage(response.data.message);
+            setError('');
+
+            alert(response.data.message);
         } catch (error) {
             if (error.response && error.response.data.error) {
-                setMessage(error.response.data.error);
+                setError(error.response.data.error);
             } else {
-                setMessage("Something went wrong. Please try again.");
+                setError("Something went wrong. Please try again.");
             }
         }
     };
@@ -126,6 +128,8 @@ function SignUp() {
 
                         {/* Submit button */}
                         <button input type="submit" className="sign-up-submit-button">Sign Up</button>
+                        {/* Move the error message here to position it below the button */}
+                        {error && <p className="error">{error}</p>}{/*Display error in red*/}
 
                         {/* Sign In */}
                         <div className="sign-in">
