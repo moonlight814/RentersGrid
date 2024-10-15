@@ -9,13 +9,7 @@ import SideMenu from './SideMenu'; // Import the SideMenu component
 import { useNavigate } from 'react-router-dom';
 import './HomePage.css';  // Create a CSS file for styling if needed
 
-/*const HomePage = () => {
-  const [searchInput, setSearchInput] = useState('');
-  const navigate = useNavigate();
 
-  const handleSearch = () => {
-    navigate(`/search-results?searchBy=${searchType}&query=${searchInput}`);
-  };*/
 
 function HomePage() {
     const [selectedOption, setSelectedOption] = useState('landlord'); // Default option

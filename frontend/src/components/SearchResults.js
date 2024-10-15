@@ -15,7 +15,11 @@ function SearchPage() {
 
   const handleSortChange = (e) => {
     setSortBy(e.target.value);
-  };
+    };
+    // Function to refresh the page
+    const refreshPage = () => {
+        window.location.reload();
+    }
 
   return (
     <div className="search-page-container">
@@ -25,7 +29,10 @@ function SearchPage() {
       {/* Header Section */}
       <header className="header">
         <div className="logo-container">
-          <img src={OfficialLogo} alt="Official Logo" className="center-logo" />
+                  <img
+                      src={OfficialLogo}
+                      alt="Official Logo"
+                      onClick={refreshPage} />
         </div>
         <div className="buttons-container">
           {/* Left Button/Icon */}

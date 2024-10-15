@@ -19,19 +19,34 @@ function SignUp() {
     const [confirmPassword, setConfirmPassword] = useState('');
     const [error, setError] = useState('');
 
+    //Email Validation function using regex:
+    const validateEmail = (email) => {
+        const re = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+        return re.test(email);
+    }
+
     const handleSignUp = async (e) => {
         e.preventDefault();
 
         if (password != confirmPassword) {
             setError("Passwords do not match");
-            return;
+            return; //Prevents form submission
+
+           
         }
+        if (!validateEmail(email)) {
+            setError('Please enter a valid email address.');
+            return; //Prevents form submission
+
+ 
+         }
 
         try {
             const response = await axios.post('http://localhost:5000/SignUp', {
                 email,
                 password
             });
+            //clears any previous errors on success:
             setError('');
 
             alert(response.data.message);
