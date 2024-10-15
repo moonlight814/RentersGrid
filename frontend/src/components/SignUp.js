@@ -6,9 +6,43 @@ import SubmitLandlordRate from '../Assets/submit landlord rate.svg';
 import MenuAlt from '../Assets/menu-alt.svg';
 import SideMenu from './SideMenu';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 function SignUp() {
+
+
+    
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [confirmPassword, setConfirmPassword] = useState('');
+    const [message, setMessage] = useState('');
+
+    const handleSignUp = async (e) => {
+        e.preventDefault();
+
+        if (password != confirmPassword) {
+            setMessage("Passwords do not match");
+            return;
+        }
+
+        try {
+            const response = await axios.post('http://localhost:5000/SignUp', {
+                email,
+                password
+            });
+            setMessage(response.data.message);
+        } catch (error) {
+            if (error.response && error.response.data.error) {
+                setMessage(error.response.data.error);
+            } else {
+                setMessage("Something went wrong. Please try again.");
+            }
+        }
+    };
+    
+
     return (
         <div className="sign-up-main-container">
             <SideMenu />
@@ -50,11 +84,16 @@ function SignUp() {
             <div className="sign-up-wrapper">
                 <div className="sign-up-form-box-login">
                     <h1 className="sign-up-text">Sign Up</h1>
-                    <form action="#">
+                    <form onSubmit={handleSignUp}>{/*Form Submission triggers handleSignUp*/ }
                         {/* Email */}
                         <div className="sign-up-input-box">
                             <span className="icon">
-                                <input type="email" className="sign-up-email-box" required />
+                                <input type="email"
+                                    className="sign-up-email-box"
+                                    required
+                                    value={email}
+                                    onChange={(e) => setEmail(e.target.value)} //bind to email state
+                                />
                                 <label className="sign-up-email-text">Email:</label>
                             </span>
                         </div>
@@ -62,7 +101,12 @@ function SignUp() {
                         {/* Password */}
                         <div className="sign-up-input-box">
                             <span className="icon">
-                                <input type="password" className="sign-up-password-box" required placeholder="At least 6 characters with 1 number" />
+                                <input type="password"
+                                    className="sign-up-password-box"
+                                    required
+                                    value={password}
+                                    onChange={(e) => setPassword(e.target.value)} //Bind to password state
+                                    placeholder="At least 6 characters with 1 number" />
                                 <label className="sign-up-password-text">Password:</label>
                             </span>
                         </div>
@@ -70,7 +114,12 @@ function SignUp() {
                         {/* Password Confirm */}
                         <div className="sign-up-input-type">
                             <span className="icon">
-                                <input type="password" className="sign-up-password-confirm" required />
+                                <input type="password"
+                                    className="sign-up-password-confirm"
+                                    required
+                                    value={confirmPassword}
+                                    onChange={(e) => setConfirmPassword(e.target.value)} //Bind to confirmation of Password
+                                />
                                 <label className="sign-up-password-confirm-text">Re-enter Password:</label>
                             </span>
                         </div>
