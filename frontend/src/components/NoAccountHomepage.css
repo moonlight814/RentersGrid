@@ -1,67 +1,46 @@
-/* HomePage.css */
-
-/*Define the font*/
-@font-face {
+﻿@font-face {
     font-family: 'Helvetica';
     src: url('../fonts/Helvetica.ttf') format('truetype'); /* Adjust this path as necessary */
     font-weight: normal;
     font-style: normal;
 }
-/*Use font*/
 body {
     font-family: 'Helvetica';
 }
 
 
 .main-container {
-    background-color: #4D55A5; /* Change to any color you prefer */
-    min-height: 100vh; /* Full viewport height */
+    background-color: #4D55A5;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.headerhp {
-    width: 100%; /* Full width for the header */
-    display: flex;
-    justify-content: center; /* Center the content horizontally */
-    margin-top: 20px; /* Adjust top spacing if needed */
-}
-
-.logohp-container img {
+.main-logo {
     display: flex;
     justify-content: center; /* Center the logo */
     align-items: center;
-    width: 450px; /* Full width */
+    width:50vw;
+    max-width: 370px;
+    cursor: pointer;
+    margin-top: 30px;
 }
 
-/* company logo */
-.center-logo {
-    width: 400px; /* Adjust size as needed */
+.noc-left-icon {
+    width: 80px;
     height: auto;
-    margin-top: 30px; /* Top margin to fine-tune the position */
-    cursor: pointer; /* makes the company logo clickable*/
-}
-
-/* Account button styles */
-.buttons-container {
-    display: flex;
-    align-items: center;
-    position: absolute;
-    right: 50px; /* Adjust this to move the buttons more to the right */
-    top: 20px; /* Adjust top spacing as needed */
-}
-
-.left-icon {
-    width: 80px; /* Adjust size as needed */
-    height: auto;
-    margin-right: 30px; /* Space between left and right icons */
+    margin-right: 20px; /* Space between left and right icons */
+    margin-top: 30px;
+    cursor: pointer;
 }
 
 /* Styling for the right icon (Account button) */
-.account-right {
-    width: 70px; /* Adjust size as needed */
+.noc-right-icon {
+    width: 65px; /* Adjust size as needed */
     height: auto;
+    margin-top: 30px;
+    cursor: pointer;
 }
 
 .search-bar-container {

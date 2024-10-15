@@ -5,13 +5,51 @@ import AccountButton from '../Assets/Account button.svg';
 import SubmitLandlordRate from '../Assets/submit landlord rate.svg';
 import MenuAlt from '../Assets/menu-alt.svg';
 import SideMenu from './SideMenu';
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 function SignUp() {
+
+
+    
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [confirmPassword, setConfirmPassword] = useState('');
+    const [error, setError] = useState('');
+
+    const handleSignUp = async (e) => {
+        e.preventDefault();
+
+        if (password != confirmPassword) {
+            setError("Passwords do not match");
+            return;
+        }
+
+        try {
+            const response = await axios.post('http://localhost:5000/SignUp', {
+                email,
+                password
+            });
+            setError('');
+
+            alert(response.data.message);
+        } catch (error) {
+            if (error.response && error.response.data.error) {
+                setError(error.response.data.error);
+            } else {
+                setError("Something went wrong. Please try again.");
+            }
+        }
+    };
+    
+
     return (
-        <div className="main-container">
+        <div className="sign-up-main-container">
             <SideMenu />
             <header>
-            <div className="logo-container">
+            <div className="sign-up-logo-container">
                 <a href="/">
                 <img
                     src={OfficialLogo}
@@ -46,13 +84,18 @@ function SignUp() {
             </header>
 
             <div className="sign-up-wrapper">
-                <div className="form-box-login">
+                <div className="sign-up-form-box-login">
                     <h1 className="sign-up-text">Sign Up</h1>
-                    <form action="#">
+                    <form onSubmit={handleSignUp}>{/*Form Submission triggers handleSignUp*/ }
                         {/* Email */}
                         <div className="sign-up-input-box">
                             <span className="icon">
-                                <input type="email" className="sign-up-email-box" required />
+                                <input type="email"
+                                    className="sign-up-email-box"
+                                    required
+                                    value={email}
+                                    onChange={(e) => setEmail(e.target.value)} //bind to email state
+                                />
                                 <label className="sign-up-email-text">Email:</label>
                             </span>
                         </div>
@@ -60,7 +103,12 @@ function SignUp() {
                         {/* Password */}
                         <div className="sign-up-input-box">
                             <span className="icon">
-                                <input type="password" className="sign-up-password-box" required placeholder="At least 6 characters with 1 number" />
+                                <input type="password"
+                                    className="sign-up-password-box"
+                                    required
+                                    value={password}
+                                    onChange={(e) => setPassword(e.target.value)} //Bind to password state
+                                    placeholder="At least 6 characters with 1 number" />
                                 <label className="sign-up-password-text">Password:</label>
                             </span>
                         </div>
@@ -68,18 +116,25 @@ function SignUp() {
                         {/* Password Confirm */}
                         <div className="sign-up-input-type">
                             <span className="icon">
-                                <input type="password" className="sign-up-password-confirm" required />
+                                <input type="password"
+                                    className="sign-up-password-confirm"
+                                    required
+                                    value={confirmPassword}
+                                    onChange={(e) => setConfirmPassword(e.target.value)} //Bind to confirmation of Password
+                                />
                                 <label className="sign-up-password-confirm-text">Re-enter Password:</label>
                             </span>
                         </div>
 
                         {/* Submit button */}
                         <button input type="submit" className="sign-up-submit-button">Sign Up</button>
+                        {/* Move the error message here to position it below the button */}
+                        {error && <p className="error">{error}</p>}{/*Display error in red*/}
 
                         {/* Sign In */}
                         <div className="sign-in">
                             <h3 className="small-sign-in-text">Already have an account?</h3>
-                            <a href="signin" className="sign-in-link">Sign In</a>
+                            <Link to="/SignIn" className="sign-in-link">Sign In</Link>
                         </div>
 
 

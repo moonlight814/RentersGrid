@@ -1,28 +1,26 @@
 import React from 'react';
-<<<<<<< Updated upstream
 import HomePage from './components/HomePage'; 
-=======
-import HomePage from './components/HomePage';
 import NoAccountHomepage from './components/NoAccountHomepage'
 import SignIn from './components/SignIn';
 import SearchResults from './components/SearchResults'
->>>>>>> Stashed changes
+import SignUp from './components/SignUp'
+import { useState } from 'react';
+import axios from 'axios';
 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
+
 
 function App() {
   return (
     <Router>
       <Routes>
-<<<<<<< Updated upstream
-        <Route path="/" element={<HomePage />} />
-=======
-             
-              <Route path="/" element={<NoAccountHomepage />} />
-              <Route path="/homepage" element={<HomePage />} />
-              <Route path="/SearchResults" element={<SearchResults />} />
-              <Route path="/signin" element={<SignIn />} />
->>>>>>> Stashed changes
+        
+        <Route path="/" element={<NoAccountHomepage />} />
+        <Route path="/homepage" element={<HomePage />} />
+        <Route path="/SearchResults" element={<SearchResults />} />
+        <Route path="/SignIn" element={<SignIn />} />
+        <Route path="/SignUp" element={<SignUp />} />
         {/* Other Routes */}
       </Routes>
     </Router>
