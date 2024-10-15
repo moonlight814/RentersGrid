@@ -10,9 +10,6 @@ from flask_jwt_extended import JWTManager, create_access_token, jwt_required  # 
 
 import os
 
-import logging
-
-logging.basicConfig(level=logging.INFO)
 # Load environment variables from the .env file
 load_dotenv()
 
@@ -43,7 +40,8 @@ def get_next_user_id():
 
     else:
         return 1
-    
+
+
 @app.route('/SignUp',
  methods = ['POST'])
 def signup():
