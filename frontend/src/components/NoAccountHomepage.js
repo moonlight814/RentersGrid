@@ -17,6 +17,8 @@ const refreshPage = () => {
 function NoAccountHomePage() {
     const [selectedOption, setSelectedOption] = useState('landlord'); // Default option
     const [dropdownOpen, setDropdownOpen] = useState(false); // To toggle the dropdown
+    const [searchInput, setSearchInput] = useState(''); // Track the search input\
+
     const navigate = useNavigate();
 
     const handleDropdownToggle = () => {
@@ -27,7 +29,39 @@ function NoAccountHomePage() {
         setSelectedOption(value);
         setDropdownOpen(false); // Close the dropdown after selection
     };
+    //function to handle account button click
+    const handleAccountButtonClick = () => {
+        navigate('/signin'); //navigate to the sign in page
+    }
+    const handleSearch = () => {
+        console.log('Search button clicked!'); // Log when search starts
 
+        if (searchInput.trim()) {
+            console.log('Fetching data from API...'); // Log before the fetch request
+
+            // Make the API call to your Flask back-end
+            fetch(`http://localhost:5000/api/search?searchBy=${selectedOption}&query=${encodeURIComponent(searchInput)}`)
+                .then(response => response.json())
+                .then(data => {
+                    console.log('Received search results:', data); // Log the search results received from the API
+
+                    // Navigate to the SearchResults page with the results in the state
+                    navigate('/SearchResults', { state: { results: data } });
+                })
+                .catch(error => {
+                    console.error('Error fetching search results:', error); // Log any errors encountered during the fetch
+                });
+        } else {
+
+            alert("Please enter a search query.");
+        }
+    };
+    // Function to detect Enter key press
+    const handleKeyDown = (e) => {
+        if (e.key === 'Enter') {
+            handleSearch(); // Trigger search on Enter key press
+        }
+    };
 
     const options = [
         { value: 'landlord', label: 'Landlord Name' },
@@ -98,6 +132,9 @@ function NoAccountHomePage() {
                     type="text"
                     placeholder={`Search by ${options.find(option => option.value === selectedOption)?.label}`} // Dynamic placeholder
                     className="search-input"
+                    value={searchInput}
+                    onChange={(e) => setSearchInput(e.target.value)} // Update search input on change
+                    onKeyDown={handleKeyDown} // Detect Enter key press
                 />
             </div>
 
@@ -113,4 +150,4 @@ function NoAccountHomePage() {
 
 
 
-export default  NoAccountHomePage;
+export default NoAccountHomePage;
