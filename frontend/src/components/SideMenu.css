@@ -7,17 +7,13 @@
     font-size: 50px;/* is the size of menu button*/
     color: #8EC860;
   }
-  
-  .side-menu ul {
+
+.side-menu ul {
     list-style-type: none;
     padding: 0;
-  }
+}
   
-  .side-menu li {
-    display: flex;
-    align-items: center;
-    margin: 10px 0;
-  }
+  
   
   .menu-icon {
     width: 20px; /* Adjust the size of the icons as needed */
@@ -26,7 +22,7 @@
   }
   
   /* Styling for the side menu */
-  .side-menu {
+.side-menu {
     height: 100%;
     width: 0;
     position: fixed;
@@ -34,17 +30,26 @@
     left: 0;
     background-color: #8B8B8B;
     overflow-x: hidden;
-    transition: 0.s;
+    transform:scale(0);
+    transition:  0.3s ease;
     padding-top: 60px;
     z-index: 1;
-  }
-  
+}
+    /*Sidebar:
+    .side-menu li {
+        display: flex;
+        align-items: center;
+        margin: 10px 0;
+    }
+  */
   .side-menu.open {
-    top: 30px;
+    top: 160px;
     Left:20px;
-    width: 250px;
-    border-radius: 30px 30px 30px 30px;
-    height: 55vh;
+    width: 350px;
+    border-radius: 30px;
+    transform:scale(1);
+    transition: width 0.3s ease;
+    height: 60vh;
     
   }
   
@@ -52,10 +57,16 @@
   .close-button {
     position: absolute;
     top: 20px;
-    right: 25px;
-    font-size: 36px;
-    cursor: pointer;
-    color: white;
+    right: 15px;
+    background: none;
+    border:none;
+    cursor:pointer;
+
+  }
+
+  .close-icon{
+      width:24px;
+      height:24px;
   }
   
   .side-menu img.menu-logo {
@@ -64,19 +75,22 @@
     width: 200px;
     margin-bottom: 20px;
   }
-  
-  .side-menu ul {
+
+.side-menu ul {
     list-style-type: none;
     padding: 0;
-  }
+    margin: 0;
+}
   
   .side-menu ul li {
+    display:flex;
+    align-items:center;
     padding: 8px 16px;
-    text-align: center;
+    text-align: left;
     text-decoration: none;
     font-size: 25px;
     color: white;
-    display: block;
+    transition:background-color 0.3s;
   }
   
   .side-menu ul li:hover {
@@ -99,5 +113,15 @@
   .side-menu a:active {
     color: white; /* Prevent color change when clicked */
   }
-  
-  
+
+  /*Resizing the menu popup when the screen gets smaller*/
+@media(min-width:180px)and (max-width:1024px) {
+    .side-menu {
+        padding:15px;
+    }
+    .side-menu.open{
+        width:250px;
+    }
+
+
+}

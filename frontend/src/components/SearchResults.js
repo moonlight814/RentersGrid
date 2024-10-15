@@ -4,19 +4,40 @@ import AccountButton from '../Assets/Account button.svg';
 import SubmitLandlordRate from '../Assets/submit landlord rate.svg';
 import './SearchResults.css';
 import SideMenu from './SideMenu';
+import { useNavigate } from 'react-router-dom';
+
 
 function SearchPage() {
   const [searchQuery, setSearchQuery] = useState('');
+  const [searchType, setSearchType] = useState('landlord'); // Default to landlord name
   const [sortBy, setSortBy] = useState('');
-
+  const [results, setResults] = useState([]); // State for holding search results
+  const [loading, setLoading] = useState(false); // State for loading indicator
+  const navigate = useNavigate();
+  
   const handleSearchChange = (e) => {
     setSearchQuery(e.target.value);
   };
-
+const handleSearchTypeChange = (e) => {
+    setSearchType(e.target.value);
+  };
   const handleSortChange = (e) => {
     setSortBy(e.target.value);
   };
-
+  const handleSearch = () => {
+    setLoading(true); // Show loading indicator
+    fetch(`/api/search?searchBy=${searchType}&query=${encodeURIComponent(searchQuery)}`)
+      .then(response => response.json())
+      .then(data => {
+        console.log('Search results:', data);  // Log the results for debugging
+        setResults(data); // Update the results state with the fetched data
+        setLoading(false); // Stop loading indicator
+      })
+      .catch(error => {
+        console.error('Error fetching search results:', error);
+        setLoading(false); // Stop loading indicator
+      });
+  };
   return (
     <div className="search-page-container">
       {/* Side Menu Component */}
@@ -61,7 +82,6 @@ function SearchPage() {
             placeholder="Search by Location"
             className="searchby-input"
           />
-          <button className="searchby-button">Search</button>
         </div>
 
         {/* Sort By Dropdown Below the Search Bar */}
@@ -81,6 +101,28 @@ function SearchPage() {
             <option value="reviews">Most Reviews</option>
           </select>
         </div>
+      </div>
+      <div className="results-container">
+        {loading ? (
+          <p>Loading...</p>
+        ) : results.length === 0 ? (
+          <p>No results found</p>
+        ) : (
+          <ul>
+            {results.map((result, index) => (
+              <li key={index}>
+                <h3>{result.name || result.landlord_name || 'Unknown Name'}</h3>
+                <p>Property: {result.property_name || 'Unknown Property'}</p>
+                <p>Address: {result.address || 'Unknown Address'}</p>
+                <p>
+                  {result.city 
+                    ? `${result.city}, ${result.zipcode || ''}` 
+                    : 'Location Unknown'}
+                </p>
+              </li>
+            ))}
+          </ul>
+        )}
       </div>
     </div>
   );
