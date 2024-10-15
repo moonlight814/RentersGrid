@@ -5,11 +5,13 @@ import searchIcon from '../Assets/menu-1.svg';
 import addLandlordIcon from '../Assets/menu-2.svg';
 import signOutIcon from '../Assets/menu-3.svg';
 import accountIcon from '../Assets/Account button.svg';
+import OfficialLogo from '../Assets/official logo.svg';
+
 //import ratingsIcon from '../Assets/ratings-icon.svg';
 //import bookmarksIcon from '../Assets/bookmarks-icon.svg';
 import './SideMenu.css'; // Include CSS styles for the side menu
 
-function SideMenu() {
+function SideMenu({ onSignOut }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   // Toggle the menu open/close state
@@ -29,7 +31,7 @@ function SideMenu() {
         <div className="close-button" onClick={toggleMenu}>
           &times;
         </div>
-        <img src={require('../Assets/official logo.svg').default} alt="Logo" className="menu-logo" />
+        <img src={OfficialLogo} alt="OfficialLogo" className="menu-logo" />
         <ul>
           <li>
             {/* Add navigation using Link for Homepage */}
@@ -53,11 +55,13 @@ function SideMenu() {
             </Link>
           </li>
           <li>
-            {/* Add navigation using Link for Sign Out */}
-            <Link to="/sign-out" onClick={toggleMenu}>
+            <a href="#" onClick={() => {
+              onSignOut(); // Call the sign-out function passed as a prop
+              toggleMenu(); // Close the menu after signing out
+            }}>
               <img src={signOutIcon} alt="Sign Out" className="menu-icon" />
               Sign Out
-            </Link>
+            </a>
           </li>
           <hr />
           <li>
