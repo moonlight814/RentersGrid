@@ -9,7 +9,6 @@ from dotenv import load_dotenv
 from flask_jwt_extended import JWTManager, create_access_token, jwt_required  # JWT handling
 
 import os
-from flask_cors import CORS
 
 import logging
 
@@ -19,12 +18,10 @@ load_dotenv()
 
 # Retrieve the MongoDB URI from the environment variables
 mongo_uri = os.getenv("MONGO_URI")
-#landlords_collection = db['Landlords']
-#properties_collection = db['Properties']
 
 # Connect to MongoDB
 client = MongoClient(mongo_uri)
-db = client['rentersDB']  # Use or create the 'rentersDB' database
+db = client['RentersDB']  # Use or create the 'rentersDB' database
 
 # Flask Application Setup
 app = Flask(__name__)
