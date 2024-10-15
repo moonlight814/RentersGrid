@@ -4,20 +4,19 @@ import OfficialLogo from '../Assets/official logo.svg';
 import AccountButton from '../Assets/Account button.svg';
 import SubmitLandlordRate from '../Assets/submit landlord rate.svg';
 import MenuAlt from '../Assets/menu-alt.svg';
+import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import SideMenu from './SideMenu';
 
 function SignIn() {
     return (
-        <div className="main-container">  
+        <div className="sign-in-main-container">  
                  <SideMenu />
             <header>
                 
-                <nav className="navigation">
-                    
-                </nav>
                 {/* Home Page + logo */}
-                <div className="logo-container">
+                <div className="sign-in-logo-container">
                     <a href="/">
                     <img
                         src={OfficialLogo}
@@ -53,7 +52,7 @@ function SignIn() {
             </header>
 
             <div className="sign-in-wrapper">
-                <div className="form-box-login">
+                <div className="sign-in-form-box-login">
                     <h1 className="sign-in-text">Sign In</h1>
                     <form action="#">
                         {/* Email */}
@@ -78,7 +77,7 @@ function SignIn() {
                         {/* Sign Up */}
                         <div className="sign-up">
                             <h3 className="small-sign-up-text">Don't have an account?</h3>
-                            <a href="signup" className="sign-up-link">Sign Up</a>
+                            <Link to="/SignUp" className="sign-up-link">Sign Up</Link>
                         </div>
 
                         {/* Forgot Password */}

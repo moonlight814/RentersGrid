@@ -2,10 +2,10 @@ import React, { useState, useEffect } from "react";
 import { GoogleMap, LoadScript, Marker, InfoWindow } from "@react-google-maps/api";
 
 const containerStyle = {
-    width: "100%", // Full width of the parent container
-    height: "100%", // Full height of the parent container
+    width: '100%',  // Use the full width of the parent container
+    height: '650px' // Adjust height as needed
   };
-  
+
   
 
 const center = {
@@ -21,7 +21,10 @@ export default function MapComponent() {
 
   return (
     <LoadScript googleMapsApiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}>
-      <GoogleMap mapContainerStyle={containerStyle} center={center} zoom={13}>
+      <GoogleMap mapContainerStyle={containerStyle} center={center} zoom={13}
+        mapId={process.env.NEXT_PUBLIC_GOOGLE_MAPS_MAP_ID} 
+
+>
        
 
         {selectedPosition && (

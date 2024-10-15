@@ -9,9 +9,6 @@ import DownArrow from '../Assets/downward.svg'; // Make sure the path to the arr
 import Map from '../components/Map';
 import SideMenu from './NoAccountSideMenu'; // Import the SideMenu component
 import './NoAccountHomepage.css';  // Create a CSS file for styling if needed
-
-
-
 // Function to refresh the page
 const refreshPage = () => {
     window.location.reload();
@@ -20,7 +17,6 @@ const refreshPage = () => {
 function NoAccountHomePage() {
     const [selectedOption, setSelectedOption] = useState('landlord'); // Default option
     const [dropdownOpen, setDropdownOpen] = useState(false); // To toggle the dropdown
-    const [searchInput, setSearchInput] = useState(''); // Track the search input\
     const navigate = useNavigate();
 
     const handleDropdownToggle = () => {
@@ -32,42 +28,7 @@ function NoAccountHomePage() {
         setDropdownOpen(false); // Close the dropdown after selection
     };
 
-    //function to handle account button click
-    const handleAccountButtonClick = () => {
-        navigate('/signin'); //navigate to the sign in page
-    }
-    const handleSearch = () => {
-        console.log('Search button clicked!'); // Log when search starts
-      
-        if (searchInput.trim()) {
-          console.log('Fetching data from API...'); // Log before the fetch request
-      
-          // Make the API call to your Flask back-end
-          fetch(`http://localhost:5000/api/search?searchBy=${selectedOption}&query=${encodeURIComponent(searchInput)}`)
-            .then(response => response.json())
-            .then(data => {
-              console.log('Received search results:', data); // Log the search results received from the API
-      
-              // Navigate to the SearchResults page with the results in the state
-              navigate('/SearchResults', { state: { results: data } });
-            })
-            .catch(error => {
-              console.error('Error fetching search results:', error); // Log any errors encountered during the fetch
-            });
-        } else {
-          console.log('Search input is empty'); // Log if no input is provided
-        }
-      };
-      
 
-    
-
-    // Function to detect Enter key press
-    const handleKeyDown = (e) => {
-        if (e.key === 'Enter') {
-            handleSearch(); // Trigger search on Enter key press
-        }
-    };
     const options = [
         { value: 'landlord', label: 'Landlord Name' },
         { value: 'property', label: 'Property Name' },
@@ -79,14 +40,12 @@ function NoAccountHomePage() {
     return (
         <div className="main-container">
             <SideMenu />
-
             <header className="headerhp">
-                <div className="logohp-container">
+                <div className="main-logo">
                     <img
                         src={OfficialLogo}
                         alt="Official Logo"
                         onClick={refreshPage}
-                        className="center-logo"
                     />
                 </div>
                 <div className="buttons-container">
@@ -94,15 +53,16 @@ function NoAccountHomePage() {
                     <img
                         src={SubmitLandlordRate}
                         alt="Submit Landlord Rate"
-                        className="left-icon"
+                        className="noc-left-icon"
+                        onClick={() => navigate('/AddLandlord')}
                     />
 
                     {/* Right Image: Account Button */}
                     <img
                         src={AccountButton}
                         alt="Account Button"
-                        className="account-right"
-                        onClick={handleAccountButtonClick} //This adds a click handler to account button
+                        className="noc-right-icon" // Adjusted class name
+                        onClick={() => navigate('/signin')} // Directly use navigate in the onClick
                     />
                 </div>
             </header>
@@ -138,9 +98,6 @@ function NoAccountHomePage() {
                     type="text"
                     placeholder={`Search by ${options.find(option => option.value === selectedOption)?.label}`} // Dynamic placeholder
                     className="search-input"
-                    value={searchInput}
-                    onChange={(e) => setSearchInput(e.target.value)} // Update search input on change
-                    onKeyDown={handleKeyDown} // Detect Enter key press
                 />
             </div>
 

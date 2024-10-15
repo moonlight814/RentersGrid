@@ -5,8 +5,6 @@ import searchIcon from '../Assets/menu-1.svg';
 import addLandlordIcon from '../Assets/menu-2.svg';
 import signOutIcon from '../Assets/menu-3.svg';
 import accountIcon from '../Assets/Account button.svg';
-import OfficialLogo from '../Assets/official logo.svg';
-
 //import ratingsIcon from '../Assets/ratings-icon.svg';
 //import bookmarksIcon from '../Assets/bookmarks-icon.svg';
 import './SideMenu.css'; // Include CSS styles for the side menu
@@ -27,11 +25,11 @@ function SideMenu({ onSignOut }) {
       </div>
 
       {/* Side menu */}
-      <div className={`side-menu ${isMenuOpen ? 'open' : ''}`}>
-        <div className="close-button" onClick={toggleMenu}>
-          &times;
-        </div>
-        <img src={OfficialLogo} alt="OfficialLogo" className="menu-logo" />
+          <div className={`side-menu ${isMenuOpen ? 'open' : ''}`}>
+              <button className="close-button" onClick={toggleMenu} >
+                  <img src={require('../Assets/closebuttonforpopupmenu.svg').default} alt="close" className="close-icon" />
+                  </button>
+        <img src={require('../Assets/official logo.svg').default} alt="Logo" className="menu-logo" />
         <ul>
           <li>
             {/* Add navigation using Link for Homepage */}
@@ -63,7 +61,7 @@ function SideMenu({ onSignOut }) {
               Sign Out
             </a>
           </li>
-          <hr />
+    
           <li>
             {/* Add navigation using Link for My Account */}
             <Link to="/account" onClick={toggleMenu}>

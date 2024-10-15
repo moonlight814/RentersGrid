@@ -4,7 +4,6 @@ import AccountButton from '../Assets/Account button.svg';
 import SubmitLandlordRate from '../Assets/submit landlord rate.svg';
 import './SearchResults.css';
 import SideMenu from './SideMenu';
-import { useNavigate } from 'react-router-dom';
 
 function SearchPage() {
   const [searchQuery, setSearchQuery] = useState('');
@@ -13,19 +12,16 @@ function SearchPage() {
   const [results, setResults] = useState([]); // State for holding search results
   const [loading, setLoading] = useState(false); // State for loading indicator
   const navigate = useNavigate();
-
+  
   const handleSearchChange = (e) => {
     setSearchQuery(e.target.value);
   };
-
-  const handleSearchTypeChange = (e) => {
+const handleSearchTypeChange = (e) => {
     setSearchType(e.target.value);
   };
-
   const handleSortChange = (e) => {
     setSortBy(e.target.value);
   };
-
   const handleSearch = () => {
     setLoading(true); // Show loading indicator
     fetch(`/api/search?searchBy=${searchType}&query=${encodeURIComponent(searchQuery)}`)
@@ -40,8 +36,6 @@ function SearchPage() {
         setLoading(false); // Stop loading indicator
       });
   };
-  
-
   return (
     <div className="search-page-container">
       {/* Side Menu Component */}
@@ -72,15 +66,11 @@ function SearchPage() {
       <div className="searchby-and-sort-wrapper">
         {/* Search Bar Container */}
         <div className="searchresults-bar-container">
-          <select
-            className="searchby-dropdown"
-            value={searchType}
-            onChange={handleSearchTypeChange}
-          >
+          <select className="searchby-dropdown">
             <option value="landlord">Landlord Name</option>
-            <option value="property">Property Name</option>
+            <option value="Property">Property Name</option>
             <option value="address">Address</option>
-            <option value="city">City</option>
+            <option value="City">City</option>
             <option value="zipcode">Zip Code</option>
           </select>
           <input
@@ -90,9 +80,6 @@ function SearchPage() {
             placeholder="Search by Location"
             className="searchby-input"
           />
-          <button className="searchby-button" onClick={handleSearch}>
-            Search
-          </button>
         </div>
 
         {/* Sort By Dropdown Below the Search Bar */}
@@ -106,15 +93,13 @@ function SearchPage() {
           >
             <option value="">Sort By</option>
             <option value="rating">Highest Rating</option>
-            <option value="landlord">Landlord Name</option>
-            <option value="lowest-rating">Lowest Rating</option>
-            <option value="property">Property Name</option>
+            <option value="Landlord name">Landlord Name</option>
+            <option value="lowest rating">Lowest Rating</option>
+            <option value="property name">Property Name</option>
             <option value="reviews">Most Reviews</option>
           </select>
         </div>
       </div>
-
-      {/* Results Container */}
       <div className="results-container">
         {loading ? (
           <p>Loading...</p>

@@ -5,13 +5,15 @@ import AccountButton from '../Assets/Account button.svg';
 import SubmitLandlordRate from '../Assets/submit landlord rate.svg';
 import MenuAlt from '../Assets/menu-alt.svg';
 import SideMenu from './SideMenu';
+import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 function SignUp() {
     return (
-        <div className="main-container">
+        <div className="sign-up-main-container">
             <SideMenu />
             <header>
-            <div className="logo-container">
+            <div className="sign-up-logo-container">
                 <a href="/">
                 <img
                     src={OfficialLogo}
@@ -46,7 +48,7 @@ function SignUp() {
             </header>
 
             <div className="sign-up-wrapper">
-                <div className="form-box-login">
+                <div className="sign-up-form-box-login">
                     <h1 className="sign-up-text">Sign Up</h1>
                     <form action="#">
                         {/* Email */}
@@ -79,7 +81,7 @@ function SignUp() {
                         {/* Sign In */}
                         <div className="sign-in">
                             <h3 className="small-sign-in-text">Already have an account?</h3>
-                            <a href="signin" className="sign-in-link">Sign In</a>
+                            <Link to="/SignIn" className="sign-in-link">Sign In</Link>
                         </div>
 
 
