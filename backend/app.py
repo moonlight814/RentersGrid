@@ -19,8 +19,8 @@ load_dotenv()
 
 # Retrieve the MongoDB URI from the environment variables
 mongo_uri = os.getenv("MONGO_URI")
-landlords_collection = db['Landlords']
-properties_collection = db['Properties']
+#landlords_collection = db['Landlords']
+#properties_collection = db['Properties']
 
 # Connect to MongoDB
 client = MongoClient(mongo_uri)
@@ -47,7 +47,7 @@ def get_next_user_id():
     else:
         return 1
     
-    @app.route('/SignUp',
+@app.route('/SignUp',
  methods = ['POST'])
 def signup():
     data = request.json
